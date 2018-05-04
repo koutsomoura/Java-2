@@ -42,6 +42,5 @@ public class Domatio extends Exoxikikatikia {
 	public int gettypeID() {
 		return 1;
 	}
-
 	
 }

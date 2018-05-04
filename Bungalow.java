@@ -1,4 +1,3 @@
-
 public class Bungalow extends Exoxikikatikia{
 	private int DomatioTypeID;
 
@@ -19,14 +18,11 @@ public class Bungalow extends Exoxikikatikia{
 	}
 
 	@Override
-	public void calcEnoikio()throws IllegalArgumentException {
+	public void calcEnoikio() {
 
-		if (getNrOfDays()>7 && (getNrOfDays()%7)==0) {
 			double v=0.9*(getNrOfDays()*getTimiHmeras());
 			System.out.println("cost:"+v+"$");
-		}else {
-			throw new IllegalArgumentException("Einai adinato ligotero apo 7 hmeres");
-		}
+		
 	}
 	public String toString() {
 		return  gettypeName()+" "+getPerioxi_Poli()+" "+gettypeID()+" "+getNrOfDays()+getEnoikioType()+" "+getTimiHmeras()+"$/day "+getDomatioTypeID()+Type()+" ";
@@ -46,6 +42,16 @@ public class Bungalow extends Exoxikikatikia{
 	@Override
 	public int gettypeID() {
 		return 2;
+	}
+	@Override
+	public void setNrOfDays(int a) {
+		try {
+			if(a<7) {
+				throw new IllegalArgumentException("Einai adinato ligotero apo 7 hmeres");
+			}
+		}catch (IllegalArgumentException e) {
+			System.out.println(e.getMessage());
+		}
 	}
 
 }
