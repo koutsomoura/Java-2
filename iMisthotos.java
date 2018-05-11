@@ -1,6 +1,6 @@
-package Askiki2;
+package Askiki3;
 
 public interface iMisthotos {
 
-	public void Katharos_Misthotou() throws BonusExcepion;
+	public void Katharos_Misthotou() throws BonusException;
 }

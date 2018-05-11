@@ -1,4 +1,4 @@
-package Askiki2;
+package Askiki3;
 
 
 public class Misthotos extends Employee implements iMisthotos {
@@ -7,7 +7,7 @@ public class Misthotos extends Employee implements iMisthotos {
 	private double kratiseis;
 	private double bonus_Paidion;
 	private boolean bonus;
-	public Misthotos( boolean bonus,double a, double k, double b, String f, int i) throws PayTypeException {
+	public Misthotos( boolean bonus,double a, double k, double b, String f, int i) {
 		super(f,i);
 		this.bonus=bonus;
 		akatharistos=a;
@@ -28,19 +28,17 @@ public class Misthotos extends Employee implements iMisthotos {
 		return kratiseis;
 	}
 	@Override
-	public void Katharos_Misthotou() throws BonusExcepion{
-		if(!getBonus()) {
-			throw new BonusExcepion("no Bonus! ");
+	public void Katharos_Misthotou() throws BonusException {
+		if (!getBonus()) {
+			throw new BonusException("Bonus:0");
 		}
 		double v=akatharistos-kratiseis+bonus_Paidion;
 		System.out.println(" misthos:"+v);		
-		
 	}
 	public void Katharos_Misthotou_XorisBonus() {
 		double v=akatharistos-kratiseis;
 		System.out.println(" misthos:"+v);		
 	}
-
 	@Override
 	public String getPayType(){
 			if (getPType()==0) {
@@ -51,5 +49,5 @@ public class Misthotos extends Employee implements iMisthotos {
 	public String toString(){
 		return getEponymia()+" "+getPType()+" "+getPayType()+" "+getAkatharistos()+" "+getKratiseis()+" "+getBonusPaidion()+" ";
 	}
-	
+
 }

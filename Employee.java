@@ -1,4 +1,5 @@
-package Askiki2;
+package Askiki3;
+
 
 public abstract class  Employee {
 
@@ -15,6 +16,12 @@ public abstract class  Employee {
 	}
 	public int getPType() {
 		return PayType;
+	}
+	public void setEponymia(String k) {
+		this.eponymia=k;
+	}
+	public void setPType(int k) {
+		this.PayType=k;
 	}
 	public String toString() {
 		return "Eponymia: "+eponymia+" PayType: "+PayType;
