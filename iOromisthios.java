@@ -1,3 +1,4 @@
+package Askiki2;
 
 public interface iOromisthios {
 

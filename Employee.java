@@ -1,3 +1,4 @@
+package Askiki2;
 
 public abstract class  Employee {
 
@@ -8,17 +9,7 @@ public abstract class  Employee {
 		eponymia=e;
 		PayType=p;
 	}
-	public void setEponymia(String e) {
-		eponymia=e;
-	}
-	public void setPType(int t)throws PayTypeException  {
-		if (t<0 || t>2) {
-			throw new PayTypeException("Synthikh aneparkis");
 	
-		}else {
-			PayType=t;
-		}
-	}
 	public String getEponymia() {
 		return eponymia;
 	}
@@ -28,5 +19,5 @@ public abstract class  Employee {
 	public String toString() {
 		return "Eponymia: "+eponymia+" PayType: "+PayType;
 	}
-	abstract public  String getPayType() throws PayTypeExceptionMisthotos;
+	abstract public  String getPayType();
 }
