@@ -1,30 +1,24 @@
-package Askiki3;
+package excerise;
 
-
-public abstract class  Employee {
+public abstract class Employee {
 
 	private String eponymia;
 	private int PayType;
+
 	
-	public Employee(String e, int p) {
-		eponymia=e;
-		PayType=p;
+	public Employee(String eponymia, int payType)throws PayTypeExceptionMisthotos ,PayTypeExceptionOromisthios {
+		super();
+		this.eponymia = eponymia;
+		PayType = payType;
 	}
 	
-	public String getEponymia() {
-		return eponymia;
-	}
 	public int getPType() {
 		return PayType;
 	}
-	public void setEponymia(String k) {
-		this.eponymia=k;
+	public String getEponymia() {
+		return eponymia;
 	}
-	public void setPType(int k) {
-		this.PayType=k;
-	}
-	public String toString() {
-		return "Eponymia: "+eponymia+" PayType: "+PayType;
-	}
-	abstract public  String getPayType();
+
+	public abstract String getPayType();
+	
 }

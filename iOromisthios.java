@@ -1,4 +1,4 @@
-package Askiki3;
+package excerise;
 
 public interface iOromisthios {
 	

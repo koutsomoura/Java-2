@@ -1,25 +1,33 @@
-package Askiki3;
-
+package excerise;
 
 public class Misthotos extends Employee implements iMisthotos {
 
 	private double akatharistos;
 	private double kratiseis;
-	private double bonus_Paidion;
+	private double bonus_paidion;
 	private boolean bonus;
-	public Misthotos( boolean bonus,double a, double k, double b, String f, int i) {
-		super(f,i);
+	
+	public Misthotos(boolean bonus,String eponymia, int payType,double a,double k,double b) throws PayTypeExceptionMisthotos, PayTypeExceptionOromisthios  {
+		
+		super(eponymia, payType);
+		if (payType!=0) {
+			throw new PayTypeExceptionMisthotos("For input type-misthotos "+payType+" wrong input (0-Misthoto,1-Oromisthio), please try again:");
+		}		
 		this.bonus=bonus;
 		akatharistos=a;
 		kratiseis=k;
-		bonus_Paidion=b;
-	}
+		bonus_paidion=b;
+		
 	
-	public boolean getBonus() {
+	}
+	public boolean getBonus() throws BonusException {
+		if (bonus) {
+			throw new BonusException("Bonus:0");
+		}
 		return bonus;
 	}
 	public double getBonusPaidion() {
-		return bonus_Paidion;
+		return bonus_paidion;
 	}
 	public double getAkatharistos() {
 		return akatharistos;
@@ -28,26 +36,29 @@ public class Misthotos extends Employee implements iMisthotos {
 		return kratiseis;
 	}
 	@Override
-	public void Katharos_Misthotou() throws BonusException {
-		if (!getBonus()) {
-			throw new BonusException("Bonus:0");
-		}
-		double v=akatharistos-kratiseis+bonus_Paidion;
-		System.out.println(" misthos:"+v);		
-	}
-	public void Katharos_Misthotou_XorisBonus() {
+	public void Katharos_Misthtou() {
+
 		double v=akatharistos-kratiseis;
-		System.out.println(" misthos:"+v);		
+		try {
+			getBonus();
+			System.out.println("Misthos:"+(v+getBonusPaidion()));
+		}catch(BonusException e1) {
+			System.out.println(e1.getMessage()+" Misthos:"+v);
+		}
+		
 	}
+
 	@Override
-	public String getPayType(){
-			if (getPType()==0) {
-				return "misthotos";
-			}
-		return "-1";
+	public String getPayType() {
+		if (getPType()==0) {
+			return "misthotos";
+		}
+	return "-1";
 	}
+
 	public String toString(){
 		return getEponymia()+" "+getPType()+" "+getPayType()+" "+getAkatharistos()+" "+getKratiseis()+" "+getBonusPaidion()+" ";
 	}
 
+	
 }
